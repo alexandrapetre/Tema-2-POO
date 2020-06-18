@@ -1,0 +1,37 @@
+/* PETRE ALEXANDRA ELENA 325CB */
+
+(*) CLASA OBIECTE
+    -clasa in care se stocheaza atributele fiecarei entitati
+
+(*) CLASA ENTITATE
+    -fiecare entitate are campurile rf, nume, cheie_primara si timestamp
+    -fiecare entitate are o lista de atribute
+    -metoda afis din clasa Entitate, are rolul de a afisa fiecare atribut in
+  functie de tipul atributului(float integer sau String)
+    -metoda compareTo intoarce daca timestamp-ul entitatii este mai mare, mai mic
+  sau egal cu cel cu care se face comparatia
+
+(*) CLASA NOD
+    -fiecare nod al bazei de date are campurile Max_capacity si id_nod si o lista
+ de entitati
+    -sunt implementate metodele:
+      = stergeEntitate, care se apeleaza pentru fiecare nod in main
+        sterge entitatea cu cheia primara primita ca parametru
+      = stergeEntTime, metoda este apelata atunci cand este data comanda
+        de CLEANUP, se sterg din nod entitatile cu timestampul mai mic decat
+        cel dat ca parametru
+      = cautaEntitate, metoda cauta entitatea in vectorul de entitai al nodului
+        scrie in fisier nodul in care s-a gasit si se intoarce 1 daca exista in
+        nod sau 0 daca entitate cu cheia primara nu este in nod
+      = afisEntitate, aceasta metoda parcurge vectorul de entitati al nodului
+        si apeleaza functia afis din clasa Entitate, in care se afiseaza
+        toate atributele entitatii cautate
+      = updateEntitate, aceasta metoda parcurge vectorul de entitati al nodului
+        si schimba atributele entitatii
+        se modifica timestampul entitatii la apelul comenzii UPDATE
+        la final se sorteaza vectorul de entitati dupa timestamp
+
+(*) CLASA TEMA2
+    -este implementata metoda main
+    -se citesc din fiser comenzile
+    -se scrie in fisierul de iesire (argv[0] + '_out'); 
